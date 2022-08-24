@@ -1,0 +1,20 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block title %} Busqueda - Nombre {% endblock %}
+
+{% block body %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{artistas.as_p}}
+
+        <input type="text" name="nombre" id="nombre">
+        <input type="submit" value="Buscar">
+    </form>
+    <h4> Los nombres son:</h4>
+    {% for artista in artistas %}
+        {{artista.nombre}}
+    {% endfor %}
+    {% endblock %}
